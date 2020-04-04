@@ -42,6 +42,7 @@ if __name__=="__main__":
         menu="""
         通讯录
         1.添加
+        2.查询
         """
         print(menu)
         s=input("请选择操作：")
@@ -50,3 +51,12 @@ if __name__=="__main__":
             if s=="1":
                 msg=add_record()
                 print(msg)
+            if s=="2":
+                name=input("请输入您要查询的姓名：")
+                query_ids,query_result=query_record(name)
+                if len(query_ids)==0:
+                    print("不存在")
+                else:
+                    for record in  query_result:
+                        print("{}\t{}\t{}".format(record["record_id"],record["name"],record["phone_number"]))
+
