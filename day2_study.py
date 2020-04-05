@@ -137,27 +137,27 @@
 
 
 # 统计函数执行时间
-import time
-def decorator(func):
-    def wrapper():
-        start_time=time.time()
-        func()
-        end_time=time.time()
-        print(end_time-start_time)
-
-    return wrapper
-
-@decorator
-def func():
-    print("hello world")
-    time.sleep(1)
-func()
-
-@decorator
-def func2():
-    print("hello world")
-    time.sleep(1)
-func2()
+# import time
+# def decorator(func):
+#     def wrapper():
+#         start_time=time.time()
+#         func()
+#         end_time=time.time()
+#         print(end_time-start_time)
+#
+#     return wrapper
+#
+# @decorator
+# def func():
+#     print("hello world")
+#     time.sleep(1)
+# func()
+#
+# @decorator
+# def func2():
+#     print("hello world")
+#     time.sleep(1)
+# func2()
 # 加法函数
 # def add_decorator(f):
 #     def wrap(x,y):
@@ -168,3 +168,41 @@ func2()
 # def add_method(x,y):
 #     return x+y
 # print(add_method(2,3))
+
+# 带参数的装饰器
+# def out_f(arg):
+#     print("out_f"+arg)
+#     def decorator(func):
+#         def inner():
+#             func()
+#         return inner
+#     return decorator
+# @out_f("123")
+# def func():
+#     print("hello world")
+# func()
+
+
+
+# 可迭代的对象，迭代器
+
+
+# 斐波那契数--定义迭代器，菲波那切数列
+class Fibs:
+    def __init__(self):
+        self.a=0
+        self.b=1
+    def __next__(self):
+        self.a,self.b=self.b,self.a+self.b
+        return self.a
+    def __iter__(self):
+        return self
+
+fibs=Fibs()
+
+for f in fibs:
+    if f>1000:
+        print(f)
+        break
+
+
