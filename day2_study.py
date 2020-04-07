@@ -188,21 +188,64 @@
 
 
 # 斐波那契数--定义迭代器，菲波那切数列
-class Fibs:
-    def __init__(self):
-        self.a=0
-        self.b=1
-    def __next__(self):
-        self.a,self.b=self.b,self.a+self.b
-        return self.a
-    def __iter__(self):
-        return self
+# class Fibs:
+#     def __init__(self):
+#         self.a=0
+#         self.b=1
+#     def __next__(self):
+#         self.a,self.b=self.b,self.a+self.b
+#         return self.a
+#     def __iter__(self):
+#         return self
+#
+# fibs=Fibs()
 
-fibs=Fibs()
+# for f in fibs:
+#     if f>1000:
+#         print(f)
+#         break
 
-for f in fibs:
-    if f>1000:
-        print(f)
-        break
+# 生成器__next__
+# L=[[1,2],[3,4],[5,6]]
+# def flat(L):
+#     for sublist in L:
+#         for e in sublist:
+#             yield e
+# for num in flat(L):
+#     print(num)
 
+# 生成器send方法-生成器函数执行到yield时会暂停，执行send，继续运行下一个循环等到再次遇到yield时再暂停
 
+# def gen():
+#     for i in range(10):
+#         x=(yield i)
+#         print(x)
+# g =gen()
+# next(g)
+# print(g.send(11))
+# print(g.send(22))
+
+# f = ( x ** 2 for x in range(4))
+# print(next(f))
+#
+
+# import os
+# print(os.getcwd())
+# print(os.listdir())
+# print(os.mkdir("te"))
+#
+# print(os.listdir())
+#
+#
+#
+username="renxueke"
+
+if username == "renxueke":
+    print("登录成功")
+else:
+    print("登录不成功")
+# renxueke=input("please input:")
+# if renxueke=="111":
+#     print("111")
+# else:
+#     print("222")
