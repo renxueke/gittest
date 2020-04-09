@@ -50,17 +50,31 @@
 # os_test(filepath)
 
 # 练习找出单个目录中的最大文件
-# 练习找出目录树中的最大文件
 
+# import os
+# max_size=0
+# for dir_path,dir_names,file_names in os.walk(r"D:/test_data"):
+#     for file_name in file_names:
+#         path=os.path.join(dir_path,file_name)
+#         file_size=os.path.getsize(path)
+#         if file_size>max_size:
+#             max_size=file_size
+#             max_file=path
+# print(max_file,max_size)
+
+
+# 练习找出目录树中的最大文件
+# step1 找出各个文件夹
+# step2 找出各个文件夹中最大文件
+# step3 对比找出各个文件夹中最大的文件
 import os
 max_size=0
-for dir_path,dir_names,file_names in os.walk(r"D:/test_data"):
+for dir_path,dir_names,file_names in os.walk(r"D:"):
     for file_name in file_names:
         path=os.path.join(dir_path,file_name)
+        # print(path,file_name)
         file_size=os.path.getsize(path)
         if file_size>max_size:
             max_size=file_size
             max_file=path
 print(max_file,max_size)
-
-
