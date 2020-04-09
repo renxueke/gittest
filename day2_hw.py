@@ -40,14 +40,27 @@
 
 # 作业二：
 # 递归函数列出所有文件 使用os.listdir os.isfile
+
+# import os
+# def os_test(filepath):
+#     for file in os.listdir(filepath):
+#         path=os.path.join(filepath,file)
+#         print(path)
+# filepath="D:/test_data"
+# os_test(filepath)
+
 # 练习找出单个目录中的最大文件
 # 练习找出目录树中的最大文件
 
 import os
-def os_test(filepath):
-    for file in os.listdir(filepath):
-        path=os.path.join(filepath,file)
-        print(path)
-filepath="D:/test_data"
-os_test(filepath)
+max_size=0
+for dir_path,dir_names,file_names in os.walk(r"D:/test_data"):
+    for file_name in file_names:
+        path=os.path.join(dir_path,file_name)
+        file_size=os.path.getsize(path)
+        if file_size>max_size:
+            max_size=file_size
+            max_file=path
+print(max_file,max_size)
+
 
