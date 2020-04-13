@@ -14,3 +14,8 @@
 # print(obj.scheme)
 # print(obj.query)
 
+from urllib.parse import urlencode
+data={
+    "kw":"中国"
+}
+print(urlencode(data))
